@@ -71,12 +71,12 @@ namespace shangzhel.RayTracer.Debug
                 {
                     writer.Write(i);
                 }
-                writer.Write(ray.from.x);
-                writer.Write(ray.from.y);
-                writer.Write(ray.from.z);
-                writer.Write(ray.to.x);
-                writer.Write(ray.to.y);
-                writer.Write(ray.to.z);
+                writer.Write(ray.from.X);
+                writer.Write(ray.from.Y);
+                writer.Write(ray.from.Z);
+                writer.Write(ray.to.X);
+                writer.Write(ray.to.Y);
+                writer.Write(ray.to.Z);
             }
         }
 

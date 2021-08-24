@@ -19,8 +19,6 @@ call `Logger.WriteToStream(Stream)` to write out the recorded traces to a stream
 Example:
 ```cs
 // ...
-using shangzhel.RayTracer.Debug;
-using System.IO;
 
 namespace RayTracer
 {
@@ -30,7 +28,7 @@ namespace RayTracer
 
         public void Render(Image outputImage)
         {
-            var logger = new Logger();
+            var logger = new shangzhel.RayTracer.Debug.Logger();
 
             // ...
 
@@ -38,7 +36,7 @@ namespace RayTracer
             // You will probably want to include at least the pixel x and y
             // coordinates.
             var rayId = new int[] { /*...*/ };
-            var ray = new Ray(...);
+            var ray = new Ray(/*...*/);
             RayHit rayHit = /*...*/;
             logger.Log(rayId, ray.Origin, rayHit.Position);
 
@@ -47,7 +45,7 @@ namespace RayTracer
             // Choose a file to save the rays to.
             // Give it a .rays extension to be used in the visualizer.
             var raysFile = "<somewhere>.rays";
-            using (var stream = new FileStream(raysFile))
+            using (var stream = new System.IO.FileStream(raysFile, FileMode.Create))
             {
                 logger.WriteToStream(stream);
             }
